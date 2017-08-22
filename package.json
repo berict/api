@@ -1,0 +1,25 @@
+{
+  "name": "berict",
+  "version": "1.0.0",
+  "description": "Berict REST api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berict/api.git"
+  },
+  "author": "berict",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/berict/api/issues"
+  },
+  "homepage": "https://github.com/berict/api#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
