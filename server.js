@@ -2,7 +2,8 @@ var express = require('express'),
     app = express(),
     port = process.env.PORT || 3000;
 mongoose = require('mongoose'),
-    Task = require('./api/models/apiModel'), // model loading here
+    Presets = require('./api/models/apiModelPresets'),
+    Version = require('./api/models/apiModelVersion'),
     bodyParser = require('body-parser');
 
 // mongoose instance connection url connection
