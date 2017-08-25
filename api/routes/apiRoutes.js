@@ -15,9 +15,9 @@ module.exports = function (app) {
 
     console.log("Routed /tapad/presets/:presetId");
 
-    app.route('/tapad/version')
+    app.route('/tapad/versionCode')
         .get(controller.get_version)
         .post(controller.post_version);
 
-    console.log("Routed /tapad/version");
+    console.log("Routed /tapad/versionCode");
 };
