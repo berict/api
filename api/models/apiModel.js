@@ -38,82 +38,76 @@ var Schema = mongoose.Schema;
 */
 
 var presetSchema = new Schema({
-    presets: [{
-        preset: {
-            about: {
-                songName: {
-                    type: String,
-                    required: true
-                },
-                songArtist: {
-                    type: String,
-                    required: true
-                },
-                presetArtist: {
-                    type: String,
-                    required: true
-                },
-                isTutorialAvailable: {
-                    type: Boolean,
-                    required: true,
-                    default: false
-                },
-                color: {
-                    type: String,
-                    required: true
-                }
-            },
-            isGesture: {
-                type: Boolean,
-                required: true
-            },
-            soundCount: {
-                type: Number,
-                required: true
-            },
-            tag: {
+    preset: {
+        about: {
+            songName: {
                 type: String,
                 required: true
             },
-            bpm: {
-                type: Number,
+            songArtist: {
+                type: String,
+                required: true
+            },
+            presetArtist: {
+                type: String,
+                required: true
+            },
+            isTutorialAvailable: {
+                type: Boolean,
+                required: true,
+                default: false
+            },
+            color: {
+                type: String,
                 required: true
             }
         },
-        genre: {
+        isGesture: {
+            type: Boolean,
+            required: true
+        },
+        soundCount: {
+            type: Number,
+            required: true
+        },
+        tag: {
             type: String,
             required: true
         },
-        description: String,
-        difficulty: {
+        bpm: {
             type: Number,
+            required: true
+        }
+    },
+    genre: {
+        type: String,
+        required: true
+    },
+    description: String,
+    difficulty: {
+        type: Number,
+        required: true
+    },
+    version: {
+        type: Number,
+        required: true,
+        default: 1
+    },
+    reviews: [{
+        rating: {
+            type: Number,
+            required: true
+        },
+        comment: String,
+        date: {
+            type: Date,
             required: true
         },
         version: {
             type: Number,
-            required: true,
-            default: 1
-        },
-        reviews: [{
-            rating: {
-                type: Number,
-                required: true
-            },
-            comment: String,
-            date: {
-                type: Date,
-                required: true
-            },
-            version: {
-                type: Number,
-                required: true
-            }
-        }]
-    }],
-    versionCode: {
-        type: Number,
-        required: true
-    }
+            required: true
+        }
+    }]
 });
 
 // Example schema from https://www.codementor.io/olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
