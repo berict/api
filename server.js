@@ -11,13 +11,14 @@ mongoose.connect('localhost/PresetDB');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
+var routes = require('./api/routes/apiRoutes'); //importing route
+routes(app); //register the route
+
 // not found exception
 app.use(function (req, res) {
     res.status(404).send({url: req.originalUrl + ' not found'})
 });
-
-var routes = require('./api/routes/apiRoutes'); //importing route
-routes(app); //register the route
 
 app.listen(port);
 
