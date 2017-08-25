@@ -1,7 +1,8 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    Preset = mongoose.model('Presets');
+    Preset = mongoose.model('Presets'),
+    Version = mongoose.model('Version');
 
 exports.get_presets = function (req, res) {
     Preset.find({}, function (err, preset) {
@@ -43,5 +44,22 @@ exports.delete_preset = function (req, res) {
         if (err)
             res.send(err);
         res.json({message: 'Preset successfully deleted'});
+    });
+};
+
+exports.get_version = function (req, res) {
+    Version.find({}, function (err, version) {
+        if (err)
+            res.send(err);
+        res.json(version);
+    });
+};
+
+exports.post_version = function (req, res) {
+    var new_version = new Version(req.body);
+    new_version.save(function (err, version) {
+        if (err)
+            res.send(err);
+        res.json(version);
     });
 };
