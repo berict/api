@@ -2,11 +2,9 @@
 module.exports = function (app) {
     var controller = require('../controllers/apiController');
 
-    // todoList Routes
     app.route('/tapad/presets')
         .get(controller.get_presets)
         .post(controller.post_preset);
-
 
     app.route('/tapad/presets/:presetId')
         .get(controller.get_preset)
