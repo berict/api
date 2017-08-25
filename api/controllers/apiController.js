@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose'),
     Preset = mongoose.model('Presets'),
-    VersionCode = mongoose.model('VersionCode');
+    Version = mongoose.model('Version');
 
 exports.get_presets = function (req, res) {
     Preset.find({}, function (err, preset) {
