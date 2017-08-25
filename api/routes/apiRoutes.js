@@ -8,12 +8,12 @@ module.exports = function (app) {
 
     console.log("Routed /tapad/presets");
 
-    app.route('/tapad/presets/:presetId')
+    app.route('/tapad/presets/:tag')
         .get(controller.get_preset)
         .put(controller.put_preset)
         .delete(controller.delete_preset);
 
-    console.log("Routed /tapad/presets/:presetId");
+    console.log("Routed /tapad/presets/:tag");
 
     app.route('/tapad/version')
         .get(controller.get_version)

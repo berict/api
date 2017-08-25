@@ -22,7 +22,9 @@ exports.post_preset = function (req, res) {
 };
 
 exports.get_preset = function (req, res) {
-    Preset.findById(req.params.presetId, function (err, preset) {
+    Preset.find({
+        "preset.tag": req.params.tag
+    }, function (err, preset) {
         if (err)
             res.send(err);
         res.json(preset);
@@ -30,7 +32,9 @@ exports.get_preset = function (req, res) {
 };
 
 exports.put_preset = function (req, res) {
-    Preset.findOneAndUpdate({_id: req.params.presetId}, req.body, {new: true}, function (err, preset) {
+    Preset.findOneAndUpdate({
+        "preset.tag": req.params.tag
+    }, req.body, {new: true}, function (err, preset) {
         if (err)
             res.send(err);
         res.json(preset);
@@ -39,7 +43,7 @@ exports.put_preset = function (req, res) {
 
 exports.delete_preset = function (req, res) {
     Preset.remove({
-        _id: req.params.presetId
+        "preset.tag": req.params.tag
     }, function (err, preset) {
         if (err)
             res.send(err);
