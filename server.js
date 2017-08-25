@@ -7,7 +7,7 @@ mongoose = require('mongoose'),
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/PresetDB');
+mongoose.connect('localhost/PresetDB');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
