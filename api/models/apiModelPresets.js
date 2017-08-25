@@ -75,12 +75,4 @@ var presetSchema = new Schema({
     }]
 });
 
-var versionSchema = new Schema({
-    version: {
-        type: Number,
-        required: true
-    }
-});
-
 module.exports = mongoose.model('Presets', presetSchema);
-module.exports = mongoose.model('Version', versionSchema);
