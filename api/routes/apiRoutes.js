@@ -17,7 +17,7 @@ module.exports = function (app) {
 
     app.route('/tapad/version')
         .get(controller.get_version)
-        .post(controller.post_version);
+        .put(controller.put_version);
 
     console.log("Routed /tapad/version");
 };

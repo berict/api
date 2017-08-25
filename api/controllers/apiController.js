@@ -55,11 +55,10 @@ exports.get_version = function (req, res) {
     });
 };
 
-exports.post_version = function (req, res) {
-    var new_version = new Version(req.body);
-    new_version.save(function (err, version) {
+exports.put_version = function (req, res) {
+    Version.findOneAndUpdate({}, req.body, {new: true}, function (err, preset) {
         if (err)
             res.send(err);
-        res.json(version);
+        res.json(preset);
     });
 };
