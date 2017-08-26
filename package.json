@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prestart": "sudo service mongod start",
-    "start": "forever start -c \"npm start\" /berict"
+    "start": "forever start /berict/server.js"
   },
   "repository": {
     "type": "git",
