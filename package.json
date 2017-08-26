@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prestart": "sudo service mongod start",
-    "start": "nodemon server.js"
+    "start": "forever start -c \"npm start\" server.js"
   },
   "repository": {
     "type": "git",
