@@ -22,7 +22,8 @@ exports.post_preset = function (req, res) {
 };
 
 exports.get_preset = function (req, res) {
-    Preset.find({
+    // need to be findOne() for tag searches
+    Preset.findOne({
         "preset.tag": req.params.tag
     }, function (err, preset) {
         if (err)
@@ -52,7 +53,7 @@ exports.delete_preset = function (req, res) {
 };
 
 exports.get_version = function (req, res) {
-    Version.find({}, function (err, version) {
+    Version.findOne({}, function (err, version) {
         if (err)
             res.send(err);
         res.json(version);
