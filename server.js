@@ -1,13 +1,14 @@
 var express = require('express'),
     app = express(),
     port = process.env.PORT || 3000;
+
 mongoose = require('mongoose'),
     Presets = require('./api/models/apiModelPresets'),
     Version = require('./api/models/apiModelVersion'),
     bodyParser = require('body-parser');
 
 var mongo_express = require('mongo-express/lib/middleware');
-var mongo_express_config = require('./mongo_express_config');
+var mongo_express_config = require('./node_modules/mongo-express/config');
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
