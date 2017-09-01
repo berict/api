@@ -6,7 +6,7 @@ mongoose = require('mongoose'),
     Version = require('./api/models/apiModelVersion'),
     bodyParser = require('body-parser');
 
-var mongo_express = require('node_modules/mongo-express/lib/middleware');
+var mongo_express = require('mongo-express/lib/middleware');
 var mongo_express_config = require('./mongo_express_config');
 
 // mongoose instance connection url connection
