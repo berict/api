@@ -7,9 +7,6 @@ mongoose = require('mongoose'),
     Version = require('./api/models/apiModelVersion'),
     bodyParser = require('body-parser');
 
-var mongo_express = require('mongo-express/lib/middleware');
-var mongo_express_config = require('./node_modules/mongo-express/config');
-
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 mongoose.connect('localhost/PresetDB');
@@ -24,8 +21,6 @@ routes(app); //register the route
 app.use(function (req, res) {
     res.status(404).send({url: req.originalUrl + ' not found'})
 });
-
-app.use('/mongo_express', mongo_express(mongo_express_config));
 
 app.listen(port);
 
