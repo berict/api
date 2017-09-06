@@ -4,6 +4,10 @@ var mongoose = require('mongoose'),
     Preset = mongoose.model('Presets'),
     Version = mongoose.model('Version');
 
+exports.get_preset_schema = function (req, res) {
+    res.json("TEST JSON");
+};
+
 exports.get_presets = function (req, res) {
     Preset.find({}, function (err, preset) {
         if (err)

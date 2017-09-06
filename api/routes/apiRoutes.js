@@ -2,6 +2,9 @@
 module.exports = function (app) {
     var controller = require('../controllers/apiController');
 
+    app.route('/tapad/preset-schema')
+        .get(controller.get_preset_schema);
+
     app.route('/tapad/presets')
         .get(controller.get_presets)
         .post(controller.post_preset);
