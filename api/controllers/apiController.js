@@ -4,8 +4,28 @@ var mongoose = require('mongoose'),
     Preset = mongoose.model('Presets'),
     Version = mongoose.model('Version');
 
+function getPresets() {
+    Preset.find({}, function (err, preset) {
+        if (err)
+            return err;
+        return preset;
+    });
+}
+
+function getVersion() {
+    Version.findOne({}, function (err, version) {
+        if (err)
+            return err;
+        return version;
+    });
+}
+
 exports.get_preset_schema = function (req, res) {
-    res.json("TEST JSON");
+    var schema = {
+        "presets": getPresets(),
+        "versionCode": getVersion()
+    };
+    res.json(schema);
 };
 
 exports.get_presets = function (req, res) {
