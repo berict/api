@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
 function getPresets() {
     Preset.find({}, function (err, preset) {
         if (err)
-            return err;
+            return [];
         return preset;
     });
 }
@@ -15,7 +15,7 @@ function getPresets() {
 function getVersion() {
     Version.findOne({}, function (err, version) {
         if (err)
-            return err;
+            return -1;
         return version;
     });
 }
