@@ -22,8 +22,16 @@ function getVersion() {
 
 exports.get_preset_schema = function (req, res) {
     var schema = {
-        "presets": getPresets(),
-        "versionCode": getVersion(),
+        "presets": Preset.find({}, function (err, preset) {
+            if (err)
+                return [];
+            return preset;
+        }),
+        "versionCode": Version.findOne({}, function (err, version) {
+            if (err)
+                return -1;
+            return version;
+        }),
         "test": "working"
     };
     res.json(schema);
