@@ -4,11 +4,13 @@ var mongoose = require('mongoose'),
     Preset = mongoose.model('Presets'),
     Version = mongoose.model('Version');
 
+const JSON = require('circular-json');
+
 function getPresets() {
     Preset.find({}, function (err, preset) {
         if (err)
             return [];
-        return preset;
+        return JSON.stringify(preset);
     });
 }
 
@@ -16,22 +18,14 @@ function getVersion() {
     Version.findOne({}, function (err, version) {
         if (err)
             return -1;
-        return version;
+        return JSON.stringify(version);
     });
 }
 
 exports.get_preset_schema = function (req, res) {
     var schema = {
-        "presets": Preset.find({}, function (err, preset) {
-            if (err)
-                return [];
-            return preset;
-        }),
-        "versionCode": Version.findOne({}, function (err, version) {
-            if (err)
-                return -1;
-            return version;
-        }),
+        "presets": getPresets(),
+        "versionCode": getVersion(),
         "test": "working"
     };
     res.json(schema);
