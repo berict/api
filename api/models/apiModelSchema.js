@@ -7,4 +7,4 @@ var schema = new Schema({
     version: {type: Schema.Types.ObjectId, ref: 'Version'}
 });
 
-module.exports = mongoose.model('Schema', schema);
+//module.exports = mongoose.model('Schema', schema);

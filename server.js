@@ -3,7 +3,7 @@ var express = require('express'),
     port = process.env.PORT || 3000;
 
 mongoose = require('mongoose'),
-    Schema = require('./api/models/apiModelSchema'),
+    //Schema = require('./api/models/apiModelSchema'),
     Presets = require('./api/models/apiModelPresets'),
     Version = require('./api/models/apiModelVersion'),
     bodyParser = require('body-parser');
