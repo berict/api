@@ -18,14 +18,22 @@ function getVersion() {
     Version.findOne({}, function (err, version) {
         if (err)
             return -1;
-        return JSON.stringify(version);
+        return JSON.stringify(preset);
     });
 }
 
 exports.get_preset_schema = function (req, res) {
     var schema = {
-        "presets": getPresets(),
-        "versionCode": getVersion(),
+        "presets": Preset.find({}, function (err, preset) {
+            if (err)
+                return [];
+            return JSON.stringify(preset);
+        }),
+        "versionCode": Version.findOne({}, function (err, version) {
+            if (err)
+                return -1;
+            return JSON.stringify(version);
+        }),
         "test": "working"
     };
     res.json(schema);
