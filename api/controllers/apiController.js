@@ -13,7 +13,9 @@ exports.get_preset_schema = function (req, res) {
         .populate('Version')
         .exec(function (err, schema) {
             if (err)
+                console.log(err);
                 res.send(err);
+            console.log(schema);
             res.json(schema);
         });
 };
