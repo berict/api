@@ -12,11 +12,12 @@ exports.get_preset_schema = function (req, res) {
         .populate('Presets')
         .populate('Version')
         .exec(function (err, schema) {
-            if (err)
+            if (err) {
                 console.log(err);
-            res.send({"error": err});
-            console.log(schema);
-            res.json(schema);
+                res.send({"error": err});
+            } else {
+                res.json(schema);
+            }
         });
 };
 
