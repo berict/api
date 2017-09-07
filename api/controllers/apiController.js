@@ -9,8 +9,7 @@ const JSON = require('circular-json');
 
 exports.get_preset_schema = function (req, res) {
     Schema.findOne({})
-        .populate('Presets')
-        .populate('Version')
+        .populate('Presets Version')
         .exec(function (err, schema) {
             if (err) {
                 console.log(err);
