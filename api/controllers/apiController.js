@@ -14,7 +14,7 @@ exports.get_preset_schema = function (req, res) {
         .exec(function (err, schema) {
             if (err)
                 console.log(err);
-                res.send(err);
+            res.send({"error": err});
             console.log(schema);
             res.json(schema);
         });
@@ -23,7 +23,7 @@ exports.get_preset_schema = function (req, res) {
 exports.get_presets = function (req, res) {
     Preset.find({}, function (err, preset) {
         if (err)
-            res.send(err);
+            res.send({"error": err});
         res.json(preset);
     });
 };
@@ -32,7 +32,7 @@ exports.post_preset = function (req, res) {
     var new_preset = new Preset(req.body);
     new_preset.save(function (err, preset) {
         if (err)
-            res.send(err);
+            res.send({"error": err});
         res.json(preset);
     });
 };
@@ -43,7 +43,7 @@ exports.get_preset = function (req, res) {
         "preset.tag": req.params.tag
     }, function (err, preset) {
         if (err)
-            res.send(err);
+            res.send({"error": err});
         res.json(preset);
     });
 };
@@ -53,7 +53,7 @@ exports.put_preset = function (req, res) {
         "preset.tag": req.params.tag
     }, req.body, {new: true}, function (err, preset) {
         if (err)
-            res.send(err);
+            res.send({"error": err});
         res.json(preset);
     });
 };
@@ -63,7 +63,7 @@ exports.delete_preset = function (req, res) {
         "preset.tag": req.params.tag
     }, function (err, preset) {
         if (err)
-            res.send(err);
+            res.send({"error": err});
         res.json({message: 'Preset successfully deleted'});
     });
 };
@@ -71,7 +71,7 @@ exports.delete_preset = function (req, res) {
 exports.get_version = function (req, res) {
     Version.findOne({}, function (err, version) {
         if (err)
-            res.send(err);
+            res.send({"error": err});
         res.json(version);
     });
 };
@@ -79,7 +79,7 @@ exports.get_version = function (req, res) {
 exports.put_version = function (req, res) {
     Version.findOneAndUpdate({}, req.body, {new: true}, function (err, preset) {
         if (err)
-            res.send(err);
+            res.send({"error": err});
         res.json(preset);
     });
 };
